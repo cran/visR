@@ -9,7 +9,7 @@ apply_attrition(data, criteria_conditions)
 \arguments{
 \item{data}{\code{data.frame}. Data set to be filtered}
 
-\item{criteria_conditions}{\code{character} Dplyr-filter compatible conditions
+\item{criteria_conditions}{\code{character} dplyr-filter compatible conditions
 of the filtering criteria. These conditions will be applied to filter the input
 data set and obtain final analysis data set}
 }
@@ -17,11 +17,15 @@ data set and obtain final analysis data set}
 Filtered data frame
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 Apply list of inclusion/exclusion criteria to a patient-level dataframe
 }
 \examples{
 adtte_filtered <- visR::apply_attrition(adtte,
- criteria_conditions = c("TRTP=='Placebo'","AGE>=75",
-                         "RACE=='WHITE'", "SITEID==709"))
+  criteria_conditions = c(
+    "TRTP=='Placebo'", "AGE>=75",
+    "RACE=='WHITE'", "SITEID==709"
+  )
+)
 
 }

@@ -3,7 +3,7 @@
 \docType{data}
 \name{adtte}
 \alias{adtte}
-\title{adtte}
+\title{adtte - CDISC ADaM compliant time to event data set}
 \format{
 A data frame with 254 rows and 26 variables:
 \describe{
@@ -36,7 +36,8 @@ A data frame with 254 rows and 26 variables:
 }
 }
 \source{
-CDISC SDTM/ADAM Pilot Project. \url{https://bitbucket.cdisc.org/projects/CED}
+CDISC SDTM/ADAM Pilot Project.
+\url{https://github.com/phuse-org/phuse-scripts/tree/master/data}
 }
 \usage{
 adtte

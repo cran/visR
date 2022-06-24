@@ -28,7 +28,7 @@ The counts and percentages of the remaining and excluded subjects
 for each step of the cohort selection in a table format.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 This is an experimental function that may be developed over time.
 
 This function calculates the subjects counts excluded and included
@@ -39,10 +39,15 @@ criteria_descriptions and criteria_conditions need to be of same length
 }
 \examples{
 visR::get_attrition(adtte,
-    criteria_descriptions =
-       c("1. Placebo Group", "2. Be 75 years of age or older.",
-         "3. White", "4. Site 709"),
-    criteria_conditions   = c("TRTP=='Placebo'","AGE>=75",
-                              "RACE=='WHITE'", "SITEID==709"),
-    subject_column_name   = 'USUBJID')
+  criteria_descriptions =
+    c(
+      "1. Placebo Group", "2. Be 75 years of age or older.",
+      "3. White", "4. Site 709"
+    ),
+  criteria_conditions = c(
+    "TRTP=='Placebo'", "AGE>=75",
+    "RACE=='WHITE'", "SITEID==709"
+  ),
+  subject_column_name = "USUBJID"
+)
 }

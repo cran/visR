@@ -9,8 +9,6 @@ knitr::opts_chunk$set(
 
 ## ----libraries, include = TRUE------------------------------------------------
 library(visR)
-library(survival)
-library(ggplot2)
 
 ## ----generate-survival-data---------------------------------------------------
 lung_cohort <- survival::lung
@@ -79,12 +77,4 @@ lung_suvival_object %>%
 lung_suvival_object %>%
   visR::visr() %>%
   visR::apply_theme(theme)
-
-## ----visr-apply_theme-non-empty-fancy, warning=FALSE--------------------------
-lung_suvival_object %>%
-  visR::visr() %>%
-  visR::apply_theme(theme) %>%
-  visR::add_CI() %>%
-  visR::add_CNSR() %>%
-  visR::add_risktable()
 

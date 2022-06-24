@@ -21,21 +21,21 @@ attrition <- visR::get_attrition(adtte,
 
 ## ----render1, fig.align='center', fig.width= 6, fig.height=6------------------
 attrition %>%
-  visr("Criteria", "Remaining N")
+  visR::visr("Criteria", "Remaining N")
 
 ## ---- data_control------------------------------------------------------------
 attrition$Complement <- c("NA", "Placebo Group", "Younger than 75 years", "Non-White", "Male")
 
 ## ----render2, fig.align='center', fig.width= 6, fig.height=6------------------
 attrition %>%
-  visr("Criteria", "Remaining N", "Complement")
+  visR::visr("Criteria", "Remaining N", "Complement")
 
 ## ----render3, fig.align='center', fig.width= 6, fig.height=6------------------
- attrition %>%
-   visr("Criteria", "Remaining N", "Complement", fill = "lightblue", border="grey")
+attrition %>%
+  visR::visr("Criteria", "Remaining N", "Complement", fill = "lightblue", border="grey")
 
 
 ## ----render4,  fig.align='center', fig.width= 6, fig.height=6-----------------
- attrition %>%
-   visr("Criteria", "Remaining N", font_size = 10)
+attrition %>%
+ visR::visr("Criteria", "Remaining N", font_size = 10)
 
