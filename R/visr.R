@@ -3,9 +3,12 @@
 #' @description S3 method for creating plots directly from objects using `ggplot2`,
 #'   similar to the base R `plot()` function.
 #'
+#' `r lifecycle::badge("deprecated")` Methods `visr.survfit()` and `visr.tidycuminc()` have been deprecated
+#' in favor of `ggsurvfit::ggsurvfit()` and `ggsurvfit::ggcuminc()`, respectively.
+#'
 #' @seealso \code{\link[ggplot2]{ggplot}}
 #'
-#' @param x Object of class `survfit`, `attritiontable`, or `tidycuminc`
+#' @param x Object of class `attritiontable`
 #' @param x_label \code{character} Label for the x-axis. When not specified,
 #'   the function will look for `"PARAM"` or `"PARAMCD"` information in the original data set (CDISC standards).
 #'   If no `"PARAM"`/`"PARAMCD"` information is available, the default x-axis label is `"Time"`.
@@ -17,17 +20,19 @@
 #'   do a proposal.
 #' @param y_ticks Ticks for the y-axis. When not specified,
 #'   the default will do a proposal based on the `fun` argument.
+#'
 #' @param fun Function that represents the scale of the estimate.
 #'   The current options are:
-#'   \itemize{
-#'   \item{`surv`}{ is the survival probability. This is the default.}
-#'   \item{`log`}{ is log of the survival probability}
-#'   \item{`event`}{ is the failure probability}
-#'   \item{`cloglog`}{ is log(-log(survival probability))}
-#'   \item{`pct`}{ is survival as a percentage}
-#'   \item{`logpct`}{ is log survival as a percentage}
-#'   \item{`cumhaz`}{ is the cumulative hazard}
+#'   \tabular{ll}{
+#'   \code{surv} \tab is the survival probability. This is the default \cr
+#'   \code{log} \tab is log of the survival probability \cr
+#'   \code{event} \tab is the failure probability \cr
+#'   \code{cloglog} \tab is log(-log(survival probability)) \cr
+#'   \code{pct} \tab is survival as a percentage \cr
+#'   \code{logpct} \tab is log survival as a percentage \cr
+#'   \code{cumhaz} \tab is the cumulative hazard \cr
 #'   }
+#'
 #' @param legend_position Specifies the legend position in the plot.
 #'   Character values allowed are "top" "left" "bottom" "right".
 #'   Numeric coordinates are also allowed.
@@ -101,6 +106,11 @@ visr.survfit <- function(x = NULL,
                          fun = "surv",
                          legend_position = "right",
                          ...) {
+  lifecycle::deprecate_warn(
+    when = "0.4.0",
+    what = "visR::visr.survfit()",
+    details = "Please use `ggsurvfit::ggsurvfit()` instead."
+  )
 
   # Minimal input validation  ----------------------------------------------------
 
@@ -310,7 +320,7 @@ visr.survfit <- function(x = NULL,
 
 #' @description
 #' `r lifecycle::badge("questioning")`
-#' S3 function to draw a Consort flow diagram chart.
+#' `visr.attrition()` function to draw a Consort flow diagram chart is currently being questioned.
 #'
 #' @examples
 #'
@@ -516,6 +526,12 @@ visr.tidycuminc <- function(x = NULL,
                             y_ticks = pretty(c(0, 1), 5),
                             legend_position = "right",
                             ...) {
+  lifecycle::deprecate_warn(
+    when = "0.4.0",
+    what = "visR::visr.tidycuminc()",
+    details = "Please use `ggsurvfit::ggcuminc()` instead."
+  )
+
   # check for installation of tidycmprsk package
   rlang::check_installed("tidycmprsk", version = "0.1.1")
 

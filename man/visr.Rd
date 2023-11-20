@@ -48,7 +48,7 @@ visr(x, ...)
 )
 }
 \arguments{
-\item{x}{Object of class \code{survfit}, \code{attritiontable}, or \code{tidycuminc}}
+\item{x}{Object of class \code{attritiontable}}
 
 \item{...}{other arguments passed on to the method}
 
@@ -70,14 +70,14 @@ the default will do a proposal based on the \code{fun} argument.}
 
 \item{fun}{Function that represents the scale of the estimate.
 The current options are:
-\itemize{
-\item{\code{surv}}{ is the survival probability. This is the default.}
-\item{\code{log}}{ is log of the survival probability}
-\item{\code{event}}{ is the failure probability}
-\item{\code{cloglog}}{ is log(-log(survival probability))}
-\item{\code{pct}}{ is survival as a percentage}
-\item{\code{logpct}}{ is log survival as a percentage}
-\item{\code{cumhaz}}{ is the cumulative hazard}
+\tabular{ll}{
+\code{surv} \tab is the survival probability. This is the default \cr
+\code{log} \tab is log of the survival probability \cr
+\code{event} \tab is the failure probability \cr
+\code{cloglog} \tab is log(-log(survival probability)) \cr
+\code{pct} \tab is survival as a percentage \cr
+\code{logpct} \tab is log survival as a percentage \cr
+\code{cumhaz} \tab is the cumulative hazard \cr
 }}
 
 \item{legend_position}{Specifies the legend position in the plot.
@@ -112,8 +112,11 @@ Object of class \code{ggplot} and \code{ggsurvplot} for \code{survfit} objects.
 S3 method for creating plots directly from objects using \code{ggplot2},
 similar to the base R \code{plot()} function.
 
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Methods \code{visr.survfit()} and \code{visr.tidycuminc()} have been deprecated
+in favor of \code{ggsurvfit::ggsurvfit()} and \code{ggsurvfit::ggcuminc()}, respectively.
+
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
-S3 function to draw a Consort flow diagram chart.
+\code{visr.attrition()} function to draw a Consort flow diagram chart is currently being questioned.
 }
 \examples{
 
